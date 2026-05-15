@@ -24,7 +24,7 @@ class MyOrderController extends Controller
     public function success($id)
     {
         $order = Order::where('user_id', auth()->id())
-            ->with('items.product.category')
             ->findOrFail($id);
+        return view('orders.success', compact('order'));
     }
 }
